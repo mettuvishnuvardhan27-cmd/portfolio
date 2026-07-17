@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Twinstinct Digital | Brief</title>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #1d4ed8;
+      --blue-dark: #1e40af;
+      --blue-soft: #3b82f6;
+      --white: #ffffff;
+      --soft-white: rgba(255, 255, 255, 0.76);
+      --muted-white: rgba(255, 255, 255, 0.58);
+      --line: rgba(255, 255, 255, 0.18);
+      --glass: rgba(255, 255, 255, 0.10);
+      --glass-strong: rgba(255, 255, 255, 0.16);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      background: var(--blue);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(255,255,255,0.18), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(96,165,250,0.26), transparent 34%),
+        linear-gradient(180deg, #1d4ed8, #1e40af 58%, #1d4ed8);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .agency-navbar {
+      position: fixed;
+      top: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1120px, calc(100% - 36px));
+      z-index: 999;
+      border-radius: 999px;
+      background: rgba(29, 78, 216, 0.74);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--line);
+      box-shadow: 0 22px 80px rgba(15, 23, 42, 0.24);
+    }
+
+    .agency-nav-container {
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .agency-logo {
+      color: var(--white);
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .agency-logo span {
+      color: #dbeafe;
+    }
+
+    .agency-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .agency-nav-links a {
+      color: rgba(255,255,255,0.78);
+      font-size: 14px;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .agency-nav-links a:hover {
+      color: var(--white);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .agency-hero {
+      min-height: 100vh;
+      width: min(1220px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 160px 0 95px;
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .agency-eyebrow {
+      color: var(--soft-white);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .agency-hero h1 {
+      color: var(--white);
+      font-size: clamp(4.5rem, 10vw, 9.6rem);
+      line-height: 0.86;
+      font-weight: 900;
+      letter-spacing: -7px;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .agency-hero p {
+      max-width: 570px;
+      color: var(--soft-white);
+      font-size: 17px;
+      line-height: 1.85;
+      margin-bottom: 34px;
+    }
+
+    .agency-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .agency-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 54px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 900;
+      transition: 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .agency-primary {
+      background: var(--white);
+      color: var(--blue);
+      box-shadow: 0 20px 65px rgba(15, 23, 42, 0.16);
+    }
+
+    .agency-primary:hover {
+      transform: translateY(-4px);
+      background: #dbeafe;
+    }
+
+    .agency-secondary {
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .agency-secondary:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.16);
+    }
+
+    .agency-hero-visual {
+      position: relative;
+      min-height: 610px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .agency-big-card {
+      position: relative;
+      width: min(640px, 100%);
+      min-height: 560px;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          rgba(255,255,255,0.14),
+          rgba(255,255,255,0.14) 1px,
+          transparent 1px,
+          transparent 10px
+        ),
+        rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+      box-shadow: 0 35px 110px rgba(15, 23, 42, 0.24);
+      padding: 42px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .agency-big-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.16), transparent 28%),
+        linear-gradient(180deg, transparent, rgba(255,255,255,0.10));
+      pointer-events: none;
+    }
+
+    .agency-big-card > span,
+    .agency-big-card h2,
+    .agency-mini-grid {
+      position: relative;
+      z-index: 2;
+    }
+
+    .agency-big-card > span {
+      color: rgba(255,255,255,0.70);
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .agency-big-card h2 {
+      color: var(--white);
+      font-size: clamp(4rem, 7vw, 7.2rem);
+      line-height: 0.86;
+      font-weight: 900;
+      letter-spacing: -5px;
+      max-width: 520px;
+    }
+
+    .agency-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .agency-mini-grid div {
+      min-height: 125px;
+      padding: 20px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      backdrop-filter: blur(22px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.3s ease;
+    }
+
+    .agency-mini-grid div:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.17);
+    }
+
+    .agency-mini-grid span {
+      color: rgba(255,255,255,0.62);
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .agency-mini-grid p {
+      color: var(--white);
+      font-size: 17px;
+      line-height: 1.1;
+      font-weight: 900;
+      margin: 0;
+    }
+
+    .agency-section {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 90px 0;
+    }
+
+    .agency-section-head {
+      display: grid;
+      grid-template-columns: 0.45fr 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-bottom: 45px;
+    }
+
+    .agency-section-head span {
+      color: var(--muted-white);
+      font-weight: 900;
+    }
+
+    .agency-section-head h2 {
+      color: var(--white);
+      font-size: clamp(2.7rem, 6vw, 5.8rem);
+      line-height: 0.96;
+      letter-spacing: -4px;
+      font-weight: 900;
+    }
+
+    .agency-summary-card {
+      max-width: 850px;
+      margin-left: auto;
+      padding: 42px;
+      background: var(--glass);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(20px);
+    }
+
+    .agency-summary-card p {
+      color: var(--soft-white);
+      font-size: 18px;
+      line-height: 1.9;
+    }
+
+    .agency-services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .agency-service-card {
+      min-height: 305px;
+      padding: 30px;
+      background: var(--glass);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(20px);
+      transition: 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .agency-service-card:hover {
+      transform: translateY(-8px);
+      background: var(--glass-strong);
+    }
+
+    .agency-service-card span {
+      color: var(--muted-white);
+      font-weight: 900;
+    }
+
+    .agency-service-card h3 {
+      color: var(--white);
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: -1.4px;
+      margin-bottom: 18px;
+    }
+
+    .agency-service-card p {
+      color: rgba(255,255,255,0.74);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .agency-cta {
+      width: min(1120px, calc(100% - 48px));
+      margin: 90px auto 120px;
+      padding: 52px;
+      display: grid;
+      grid-template-columns: 0.82fr 1fr auto;
+      gap: 34px;
+      align-items: center;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      backdrop-filter: blur(22px);
+    }
+
+    .agency-cta span {
+      color: var(--muted-white);
+      font-weight: 900;
+    }
+
+    .agency-cta h2 {
+      color: var(--white);
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-top: 10px;
+    }
+
+    .agency-cta p {
+      color: rgba(255,255,255,0.74);
+      line-height: 1.8;
+      max-width: 430px;
+    }
+
+    .agency-cta .agency-buttons {
+      justify-content: flex-end;
+      min-width: 360px;
+    }
+
+    .agency-footer {
+      text-align: center;
+      padding: 34px 20px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.62);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      filter: blur(8px);
+      transition: 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    @media (max-width: 1120px) {
+      .agency-cta {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .agency-cta .agency-buttons {
+        justify-content: flex-start;
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 1020px) {
+      .agency-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .agency-hero-visual {
+        min-height: auto;
+      }
+
+      .agency-big-card {
+        width: 100%;
+        min-height: 520px;
+      }
+
+      .agency-mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .agency-services-grid,
+      .agency-section-head {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .agency-navbar {
+        top: 14px;
+        width: calc(100% - 24px);
+        border-radius: 24px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .agency-nav-links {
+        position: absolute;
+        top: 72px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 24px);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 24px;
+        border-radius: 24px;
+        background: rgba(29,78,216,0.96);
+        border: 1px solid var(--line);
+        box-shadow: 0 24px 80px rgba(15,23,42,0.24);
+      }
+
+      .agency-nav-links.active {
+        display: flex;
+      }
+
+      .agency-hero {
+        width: min(100% - 36px, 1220px);
+        padding-top: 140px;
+      }
+
+      .agency-hero h1 {
+        font-size: clamp(4rem, 16vw, 6.5rem);
+        letter-spacing: -4px;
+      }
+
+      .agency-section,
+      .agency-cta {
+        width: min(100% - 36px, 1120px);
+      }
+
+      .agency-summary-card,
+      .agency-service-card,
+      .agency-cta {
+        padding: 28px;
+      }
+
+      .agency-buttons {
+        width: 100%;
+      }
+
+      .agency-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="agency-navbar">
+    <nav class="agency-nav-container">
+      <a href="index.html#home" class="agency-logo">Twinstinct<span>.</span></a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <div class="agency-nav-links" id="navLinks">
+        <a href="index.html">Portfolio</a>
+        <a href="#about-agency">About</a>
+        <a href="#agency-services">Services</a>
+        <a href="#agency-redirect">Official Website</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="agency-hero">
+      <div class="agency-hero-left reveal">
+        <p class="agency-eyebrow">Creative Digital Agency</p>
+
+        <h1>
+          Twinstinct<br>
+          Digital
+        </h1>
+
+        <p>
+          A creative digital brand focused on helping individuals, creators,
+          and businesses build a clean, modern, and impactful online presence.
+        </p>
+
+        <div class="agency-buttons">
+          <a href="#agency-services" class="agency-btn agency-primary">Explore Services</a>
+          <a href="#agency-redirect" class="agency-btn agency-secondary">Official Website</a>
+        </div>
+      </div>
+
+      <div class="agency-hero-visual reveal">
+        <div class="agency-big-card">
+          <span>Digital Presence</span>
+          <h2>Design.<br>Web.<br>Content.</h2>
+
+          <div class="agency-mini-grid">
+            <div>
+              <span>01</span>
+              <p>Web Development</p>
+            </div>
+
+            <div>
+              <span>02</span>
+              <p>Brand Visuals</p>
+            </div>
+
+            <div>
+              <span>03</span>
+              <p>Video Content</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-agency" class="agency-section">
+      <div class="agency-section-head reveal">
+        <span>About</span>
+        <h2>A brief preview of what Twinstinct Digital is about.</h2>
+      </div>
+
+      <div class="agency-summary-card reveal">
+        <p>
+          Twinstinct Digital is a creative agency initiative by Vishnu Vardhan.
+          The focus is simple: create modern websites, sharp visuals, engaging
+          content, and digital solutions that help brands communicate better online.
+        </p>
+      </div>
+    </section>
+
+    <section id="agency-services" class="agency-section">
+      <div class="agency-section-head reveal">
+        <span>Services</span>
+        <h2>Core areas we focus on.</h2>
+      </div>
+
+      <div class="agency-services-grid">
+        <article class="agency-service-card reveal">
+          <div>
+            <span>01</span>
+            <h3>Website Development</h3>
+          </div>
+          <p>Clean, responsive websites for creators, businesses, portfolios, and brands.</p>
+        </article>
+
+        <article class="agency-service-card reveal">
+          <div>
+            <span>02</span>
+            <h3>Brand & Visual Design</h3>
+          </div>
+          <p>Posters, thumbnails, banners, brand visuals, and social media creatives.</p>
+        </article>
+
+        <article class="agency-service-card reveal">
+          <div>
+            <span>03</span>
+            <h3>Video Editing</h3>
+          </div>
+          <p>Reels, promo videos, event edits, and short-form content for digital platforms.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="agency-redirect" class="agency-cta reveal">
+      <div>
+        <span>Official Website</span>
+        <h2>Visit the full Twinstinct Digital website.</h2>
+      </div>
+
+      <p>
+        This is only a brief page inside my portfolio. The official company page
+        contains the complete services, work, and inquiry flow.
+      </p>
+
+      <div class="agency-buttons">
+        <a href="http://www.twinstics.online/" target="_blank" class="agency-btn agency-primary">
+          Visit Official Website
+          <i data-lucide="external-link"></i>
+        </a>
+
+        <a href="index.html" class="agency-btn agency-secondary">
+          Back to Portfolio
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="agency-footer">
+    <p>© <span id="year"></span> Twinstinct Digital. Built by Vishnu Vardhan.</p>
+  </footer>
+
+  <script>
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+
+    const year = document.getElementById("year");
+
+    if (year) {
+      year.textContent = new Date().getFullYear();
+    }
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".agency-nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    }
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealOnScroll = () => {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add("active");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+
+    const agencyNavbar = document.querySelector(".agency-navbar");
+
+    window.addEventListener("scroll", () => {
+      if (!agencyNavbar) return;
+
+      if (window.scrollY > 50) {
+        agencyNavbar.style.background = "rgba(29,78,216,0.92)";
+      } else {
+        agencyNavbar.style.background = "rgba(29,78,216,0.74)";
+      }
+    });
+  </script>
+</body>
+</html>

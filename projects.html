@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Vishnu Vardhan</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="profile-site-background inner-page nav-at-bottom">
+  <div class="cursor-spotlight" id="cursorSpotlight"></div>
+  <div class="page-grid-bg"></div>
+
+  <header class="top-nav">
+  <a href="index.html#home" class="logo">VISHNU<span>.</span></a>
+
+  
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html#home">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="video-edits.html">Video Edits</a>
+    <a href="website-templates.html">Website Templates</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <a href="twinstinct.html" class="twinstinct-btn">
+    <i data-lucide="sparkles"></i>
+    Twinstinct
+  </a>
+
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+    <i data-lucide="menu"></i>
+  </button>
+</header>
+
+  <main>
+    <section class="page-hero projects-hero">
+      <p class="section-label reveal">Selected Work</p>
+      <h1 class="reveal">Projects built with purpose, design and code.</h1>
+      <p class="page-text reveal">
+        A focused collection of projects that show my development process, problem-solving,
+        UI thinking and technical execution.
+      </p>
+    </section>
+
+    <section class="case-study-list">
+
+
+      <article class="case-study surface reveal">
+        <div class="case-top">
+          <span class="project-number">01</span>
+          <span class="project-status completed">Completed</span>
+        </div>
+
+        <div class="case-grid">
+          <div class="case-main">
+            <p class="project-category">Utility Web Application</p>
+            <h2>The System</h2>
+            <p>
+              Stack: vanilla JS/HTML/CSS frontend, Supabase for auth + database, deployed on Vercel.
+Biggest lesson: the hardest part wasn't the gamification logic or the UI — it was rethinking the training log from "type in every set manually" to an actual checklist you can move through mid-workout. Small UX decision, completely changes whether the app feels like a tool or a chore.
+            </p>
+
+            <div class="case-block">
+              <h3>What it is about</h3>
+              <p>
+                 you've got five stats — STR, VIT, AGI, PER, INT — and each one levels up on its own once it hits 100 XP (level = XP÷100, rounded down, plus 1), with your overall Hunter Rank being the sum of all five stat levels (E under 15 total, climbing through D/C/B/A up to S at 60+). You earn XP by actually doing things: logging workout sets feeds XP into whatever stat that exercise is tied to (more sets and reps = more XP), finishing your daily quest tasks feeds VIT, logging a meal gives a flat 8 XP to VIT, and logging a PR gives a flat 12 XP to STR — and PRs also auto-detect themselves the moment you log a heavier weight than your previous best on that lift, so you don't have to log them twice. Your streak just checks if you were active yesterday too (continues) or not (resets to 1), and separately, your diet targets (calories/protein/carbs/fat) are calculated once from your weight/height/age/activity level using the standard Mifflin-St Jeor formula, adjusted based on whether your goal is cut, maintain, or bulk. One honest heads up: the XP amounts (5-12 per action) are pretty small next to the 100-XP-per-level bar, so leveling will feel slow right now — worth testing it for a real week before you post, since that's an easy number to tune up if it feels like a grind.
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h3>My Role</h3>
+              <p>
+                I worked on connecting the user interface with backend logic, creating a usable flow
+                and organizing the project structure for a real-world use case.
+              </p>
+            </div>
+          </div>
+
+          <aside class="case-side">
+            <div class="tech-card">
+              <h3>Tech Stack</h3>
+              <div class="tech-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span> Vanilla JavaScript</span>
+                <span>Super base</span>
+              </div>
+            </div>
+
+            <div class="features-card">
+              <h3>Key Features</h3>
+              <ul>
+                <li>Gamified stat system</li>
+                <li>Training Log</li>
+                <li>Diet tracking </li>
+                <li>PR Tracking</li>
+                <li> Daily Quest + Streaks</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+
+        <div class="case-actions">
+          <a href="https://the-systemm.vercel.app/" class="btn dark magnetic">Project View</a>
+          <a href="https://github.com/mettuvishnuvardhan27-cmd/the-systemm.git" class="btn outline magnetic">Source Code</a>
+        </div>
+      </article>
+
+      <article class="case-study surface reveal">
+        <div class="case-top">
+          <span class="project-number">02</span>
+          <span class="project-status progress">In Development</span>
+        </div>
+
+        <div class="case-grid">
+          <div class="case-main">
+            <p class="project-category">AI Career Platform</p>
+            <h2>CareerIQ</h2>
+            <p>
+              CareerIQ is an AI-powered resume builder and interview preparation system designed as
+              a complete career preparation platform for students, freshers, internship seekers and
+              placement aspirants.
+            </p>
+
+            <div class="case-block">
+              <h3>What it is about</h3>
+              <p>
+                CareerIQ combines resume building, ATS analysis, job description matching, mock
+                interview preparation, cover letter generation, LinkedIn optimization, career roadmaps
+                and placement readiness analytics into one platform.
+              </p>
+            </div>
+
+            <div class="case-block">
+              <h3>Why I am building it</h3>
+              <p>
+                Students often use separate tools for resumes, ATS scores, interviews and roadmaps.
+                CareerIQ solves this by creating a single AI career companion focused on practical
+                placement readiness.
+              </p>
+            </div>
+          </div>
+
+          <aside class="case-side">
+            <div class="tech-card">
+              <h3>Planned Stack</h3>
+              <div class="tech-tags">
+                <span>Next.js</span>
+                <span>React</span>
+                <span>FastAPI</span>
+                <span>MongoDB</span>
+                <span>Gemini API</span>
+                <span>PDF Tools</span>
+              </div>
+            </div>
+
+            <div class="features-card">
+              <h3>Planned Features</h3>
+              <ul>
+                <li>AI resume builder</li>
+                <li>ATS score analysis</li>
+                <li>Job description matching</li>
+                <li>Mock interview generator</li>
+                <li>Placement readiness dashboard</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+
+        <div class="case-actions">
+          <a href="#" class="btn dark magnetic">Project will updated</a>
+          <a href="https://drive.google.com/file/d/1gJZJHVhrZQzYianUMujMjnSxUjk7y6vc/view?usp=sharing" class="btn outline magnetic">Ideation Document</a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Vishnu Vardhan. Designed & Developed by Vishnu.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

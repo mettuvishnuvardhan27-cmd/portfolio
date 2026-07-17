@@ -1,0 +1,4 @@
+Add thumbnails here:
+gym-thumb.jpg
+brand-thumb.jpg
+event-thumb.jpg
