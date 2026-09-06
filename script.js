@@ -27,6 +27,17 @@ if (menuBtn && navLinks) {
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealElements = document.querySelectorAll(".reveal, .reveal-section, .reveal-card");
 
+const skillStrip = document.querySelector(".skill-strip");
+if (skillStrip) {
+  const skillTrack = document.createElement("div");
+  skillTrack.className = "skill-track";
+  while (skillStrip.firstChild) skillTrack.append(skillStrip.firstChild);
+  skillTrack.querySelectorAll("span").forEach((skill) => {
+    skillTrack.append(skill.cloneNode(true));
+  });
+  skillStrip.append(skillTrack);
+}
+
 document.body.classList.add("motion-ready");
 document.body.classList.add("profile-site-background");
 
