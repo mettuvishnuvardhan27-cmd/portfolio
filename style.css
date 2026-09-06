@@ -2381,19 +2381,28 @@ padding:30px;
 
 /* Skills stay inside the page and use solid black, high-contrast cards. */
 .profile-site-background .skill-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
-  gap: 12px;
-  overflow: visible;
-  padding: 0;
+  display: block;
+  overflow: hidden;
+  padding: 10px 0;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
 }
 
+.skill-track {
+  display: flex;
+  width: max-content;
+  gap: 12px;
+  animation: skillStripScroll 42s linear infinite;
+  will-change: transform;
+}
+
+.skill-track:hover {
+  animation-play-state: paused;
+}
+
 .profile-site-background .skill-strip span {
-  width: 100%;
-  min-width: 0;
+  flex: 0 0 184px;
   justify-content: center;
   color: #fff !important;
   background: #050505 !important;
@@ -2402,6 +2411,16 @@ padding:30px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.26) !important;
   box-shadow: 0 14px 38px rgba(0,0,0,.18);
+}
+
+@keyframes skillStripScroll {
+  to { transform: translateX(calc(-50% - 6px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-track {
+    animation: none;
+  }
 }
 
 /* Keep the full name readable throughout the hero pin. */
@@ -2499,7 +2518,7 @@ padding:30px;
   }
 
   .profile-site-background .skill-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: calc(100% - 32px);
   }
 
   .profile-site-background .hero-content {
@@ -2521,7 +2540,7 @@ padding:30px;
 
 @media (min-width: 761px) and (max-width: 1100px) {
   .profile-site-background .skill-strip {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: calc(100% - 32px);
   }
 }
 
